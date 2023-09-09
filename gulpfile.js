@@ -1,14 +1,20 @@
-const { src, dest } = require('gulp');
-const babel = require('gulp-babel');
-const uglify = require('gulp-uglify');
-const rename = require('gulp-rename');
+const gulp = require('gulp');
 
-exports.default = function() {
-  return src('src/*.js')
-    .pipe(babel())
-    .pipe(src('vendor/*.js'))
-    .pipe(dest('output/'))
-    .pipe(uglify())
-    .pipe(rename({ extname: '.min.js' }))
-    .pipe(dest('output/'));
+gulp.task('message', function (done) {
+    console.log('Gulp Test');
+    done();
+})
+
+gulp.task('test', async function () {
+    console.log('Gulp Test');
+})
+
+const defaultTask = async () => {
+    console.log('hello');
 }
+
+// exports.default = defaultTask;
+
+gulp.task('default', async function () {
+    console.log('Gulp Default');
+})
